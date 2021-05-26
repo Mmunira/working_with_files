@@ -33,8 +33,10 @@
 
 def open_with_to_write_to_file(file):
     try:
-        with open("order.txt", 'a') as file:
+        with open("order.txt", "r+") as file:
             file.write("\nPizza\nCake\nAvocado\nBiriyani\nPasta")
+            for line in file.readlines():
+                print(line.rstrip('\n'))
     except FileNotFoundError as errmsg:
         print("Sorry file not found")
 
